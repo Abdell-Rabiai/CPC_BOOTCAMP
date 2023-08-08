@@ -46,13 +46,13 @@ int main()
     string str;
     int i;
 
-    cin >> num_strings;
-    for (i = 0; i < num_strings; i++)
-    {
-        getline(cin >> ws, str);
-        if (is_valid_string(str))
+        if (is_valid_string("string"))
             cout<< "Yes"<< endl;
         else
             cout<< "No"<< endl;
-    }
+    // cin >> num_strings;
+    // for (i = 0; i < num_strings; i++)
+    // {
+    //     getline(cin >> ws, str);
+    // }
 }
