@@ -46,10 +46,10 @@ int main()
     string str;
     int i;
 
-    cin >> num_strings;
+    scanf("%d\n", &num_strings);
     for (i = 0; i < num_strings; i++)
     {
-        getline(cin >> ws, str);
+        getline(cin, str);
         if (is_valid_string(str))
             cout<< "Yes"<< endl;
         else
