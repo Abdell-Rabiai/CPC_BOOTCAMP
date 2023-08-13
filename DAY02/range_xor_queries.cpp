@@ -27,18 +27,13 @@ int main()
 	// create an array fo prefix sums of n elements in the array
 	vector<long long> pref(n + 1, 0);
 	for (size_t i = 1; i < n + 1; i++)
-		pref[i] = pref[i - 1] + arr[i - 1];
+		pref[i] = pref[i - 1] ^ arr[i - 1];
 
 	for (size_t i = 0; i < q; i++)
 	{
 		int l, r;
 		cin >> l >> r;
-		cout << pref[r] - pref[l - 1] << "\n";
+		cout << ( pref[r] ^ pref[l - 1] ) << "\n";
 	}
 	
 }
-// index // 0   1   2   3   4   5   6   7
-// array // 3   2   4   5   1   1   5   3
-// pref //  0   3   5   9   14  15  16  19  22
-
-//--> 2 4 ==> pref[4] - pref[2 - 1] = 14 - 3 = 11
