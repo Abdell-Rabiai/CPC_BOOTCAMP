@@ -9,17 +9,27 @@
 # include <cmath>
 # include <map>
 using namespace std;
-# define VISITED 0;
-# define UNVISITED 1;
-# define CURRENTLY_VISITING 2;
+# define VISITED 0
+# define UNVISITED 1
+# define CURRENTLY_VISITING 2
 long long MOD = 1e9 + 7;
 
-bool dfs(int start, vector<vector<int>> &adj, vector<bool> &visited)
+bool dfs(int start, vector<vector<int>> &adj, vector<int> &visited)
 {
-    visited[start] = true;
+    visited[start] = CURRENTLY_VISITING;
     for (auto v : adj[start])
-        if (!visited[v])
-            dfs(v, adj, visited);
+    {
+        if (visited[v] == CURRENTLY_VISITING)
+            return true;
+        if (visited[v] == UNVISITED)
+        {
+            bool is_cycl = dfs(v, adj, visited);
+            if (is_cycl == true)
+                return true;
+        }
+    }
+    visited[start] = VISITED;
+    return false;
 }
 
 int main(void)
@@ -41,7 +51,7 @@ int main(void)
             {
                 edges.push_back({i, j});
                 adj[i].push_back(j);
-                adj[j].push_back(i);
+                // adj[j].push_back(i);
             }
             graph[i][j] = nd;
             // adj[i].push_back(j);
@@ -50,10 +60,14 @@ int main(void)
     // get the number of connected components using dfs
     vector<int> visited(n, UNVISITED);
     for (int i = 0; i < n; i++)
-        if (!visited[i])
+        if (visited[i] == UNVISITED)
         {
-            count++;
             bool is_cycl = dfs(i, adj, visited);
+            if (is_cycl == true)
+            {
+                cout << "1\n";
+                return 0;
+            }
         }
-    cout << count << "\n";
+    cout << "0\n";
 }
