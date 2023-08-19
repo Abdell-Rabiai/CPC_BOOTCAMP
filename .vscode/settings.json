@@ -1,10 +1,8 @@
 {
+    "cmake.configureOnOpen": false,
     "files.associations": {
-        "__locale": "cpp",
-        "__string": "cpp",
+        "deque": "cpp",
         "string": "cpp",
-        "string_view": "cpp",
-        "set": "cpp",
-        "ostream": "cpp"
+        "vector": "cpp"
     }
 }

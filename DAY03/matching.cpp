@@ -31,7 +31,7 @@ Output
 # include <cmath>
 # include <map>
 using namespace std;
-const int MOD = 1e9 + 7;
+long long MOD = 1e9 + 7;
 
 int count_matching_integers(string s)
 {
