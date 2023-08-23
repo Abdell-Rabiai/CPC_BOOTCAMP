@@ -25,15 +25,38 @@ After this, if the division is possible, print an example of how to create the s
 # include <map>
 using namespace std;
 int mx = 2147483647;
+# define int long long
 
-int main()
+int32_t main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n, x;
-    cin >> n >> x;
-    vector<int> coins(n);
-    for (int j = 0; j < n; j++)
-        cin >> coins[j];
-    
+	int n;
+    cin >> n; // DIVIDE IT INTO TWO SETS OF EQUAL SUM
+    int sum = n * (n + 1) / 2;
+    if (sum % 2 == 0)
+    {
+        cout << "YES ";
+        vector<int> set1, set2;
+        int som = sum / 2;
+        while (n)
+        {
+            if (som - n >= 0)
+            {
+                set1.push_back(n);
+                som -= n;
+            }
+            else
+                set2.push_back(n);
+            n--;
+        }
+        cout << set2.size() << " ";
+        for (auto i : set2)
+            cout << i << " ";
+        cout <<  set1.size() << " ";
+        for (auto i : set1)
+            cout << i << " ";
+    }
+    else
+        cout << "NO\n";
 }

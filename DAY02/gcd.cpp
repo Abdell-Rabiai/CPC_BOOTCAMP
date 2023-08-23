@@ -1,3 +1,4 @@
+/**/
 # include <iostream>
 # include <algorithm>
 # include <stack>
@@ -24,10 +25,13 @@ int main(void)
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
-
-    int n; cin >> n; // number of cities
-    int m; cin >> m; // number of roads
-    cout << lcm(n,m) << "\n";
+    int n; cin >> n;
+    vector<int> v(n);
+    for (auto &i : v)
+        cin >> i;
+    int ans = v[0];
+    for (int i = 1; i < n; i++)
+        ans = gcd(ans, v[i]);
+    cout << ans << "\n";
     return 0;
 }

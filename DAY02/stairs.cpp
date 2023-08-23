@@ -1,3 +1,4 @@
+/**/
 # include <iostream>
 # include <algorithm>
 # include <stack>
@@ -18,16 +19,15 @@
 # include <climits>
 
 using namespace std;
+# define int long long
 long long MOD = 1e9 + 7;
 
-int main(void)
+int32_t main(void)
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
-
-    int n; cin >> n; // number of cities
-    int m; cin >> m; // number of roads
-    cout << lcm(n,m) << "\n";
+    int n; cin >> n;
+    int ans = sqrt(1 +(8*n)) - 1;
+    cout << ans / 2 << "\n";
     return 0;
 }

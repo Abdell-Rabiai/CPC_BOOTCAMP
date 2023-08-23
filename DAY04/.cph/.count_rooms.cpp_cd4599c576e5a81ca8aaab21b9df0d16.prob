@@ -1,0 +1,1 @@
+{"name":"Local: count_rooms","url":"/home/abdell_rabiai/Desktop/CPC_BOOTCAMP/DAY04/count_rooms.cpp","tests":[{"id":1692811263289,"input":"5 8\n########\n#..#...#\n####.#.#\n#..#...#\n########","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/abdell_rabiai/Desktop/CPC_BOOTCAMP/DAY04/count_rooms.cpp","group":"local","local":true}
